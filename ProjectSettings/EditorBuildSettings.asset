@@ -8,12 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Map.unity
     guid: d49e07bba9d33c849a359c0d570cc2d9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Camera.unity
     guid: 655659564d826ba44b033d2c3c83e8ea
-  - enabled: 0
-    path: Assets/Scenes/Camera 1.unity
+  - enabled: 1
+    path: Assets/Scenes/LightEstimation/Camera 1.unity
     guid: c8090bc32c6dd364892b62d55e2875b8
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 4971aca3fbaae88439b84a435c34c289, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f72fde8522ec33a418ec0f1166dd8cca, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9343f471524c802428cf225c8ea2cd37, type: 2}
