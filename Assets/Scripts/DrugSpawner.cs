@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DrugSpawner : MonoBehaviour
 {
-    var prefabs : Object[] = Resources.LoadAll("");
+    Object[] prefabs = Resources.LoadAll("/ZAKLAD/Assets/Prefabs/Objects/Models/Drugs");
     void Start()
     {
-        var randomPrefab = prefabs[Random.Range(prefabs.Count)];
+        var randomPrefab = prefabs[Random.Range(0,prefabs.Length)];
         Instantiate(randomPrefab);
     }
 }

@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7054995821420338371, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7054995821420338371, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -485,6 +485,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+--- !u!114 &2113315768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1936378428496567634, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+  m_PrefabInstance: {fileID: 2113315767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065619831072805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1674658329125468797, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
@@ -546,6 +557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LocationBasedGame
       objectReference: {fileID: 0}
+    - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
+      propertyPath: order
+      value: 
+      objectReference: {fileID: 2113315768}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
       propertyPath: player
       value: 
