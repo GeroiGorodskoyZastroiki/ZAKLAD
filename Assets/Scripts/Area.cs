@@ -21,7 +21,9 @@ public class Area : MonoBehaviour
 
 	public string areaType;
 
-	float spawnScale = 100f;
+	public int drugsCount;
+
+	public float spawnScale = 100f;
 
 	public void UseZone()
     {
@@ -39,6 +41,7 @@ public class Area : MonoBehaviour
 	private void Update()
 	{
 		if (area == null) { return; }
+
 		area.transform.position = map.GeoToWorldPosition(location, true);
 		area.transform.localPosition += new Vector3(1, 1, 1);
 		//spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale); // относительное отображение

@@ -9,14 +9,8 @@ using Mapbox.Unity.Utilities;
 
 public class AreaSpawner : MonoBehaviour
 {
-	[SerializeField]
-	AbstractMap map;
-
-	[SerializeField]
+    [SerializeField]
 	GameObject player;
-
-	[SerializeField]
-	InputField order;
 
 	[SerializeField]
 	GameObject area;
@@ -24,14 +18,27 @@ public class AreaSpawner : MonoBehaviour
 	[SerializeField]
 	float spawnScale = 100f;
 
-	Vector2d[] locations;
+	[SerializeField]
+	Button orderButton;
 
-    public void Update()
-    {
-		int areaCount = int.Parse(order.text);
+	[SerializeField]
+	InputField orderInputField;
+
+	[SerializeField]
+	Button zoneButton;
+
+	AbstractMap map;
+	Vector2d[] locations;
+	int drugs;
+
+	public void Start()
+	{
+		map = gameObject.GetComponent<AbstractMap>();
+		orderButton.onClick.AddListener(() => SpawnArea("PickUp", 1, drugs = int.Parse(orderInputField.text)));
+		zoneButton.onClick.AddListener(() => SpawnArea("Drop", drugs, 1));
 	}
 
-    public void SpawnArea(string areaType, int areaCount, int drugCount)
+    public void SpawnArea(string areaType, int areaCount, int drugsCount)
 	{
 		locations = new Vector2d[areaCount];
 		for (int i = 0; i < areaCount; i++)
@@ -43,6 +50,19 @@ public class AreaSpawner : MonoBehaviour
 			instance.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
 			instance.transform.SetParent(map.transform);
 			instance.GetComponent<Area>().areaType = areaType;
+			instance.GetComponent<Area>().drugsCount = drugsCount;
 		}
 	}
+
+    public void Update()
+    {
+        if (drugs>0)
+        {
+			orderButton.enabled = false;
+        }
+        else
+        {
+			orderButton.enabled = true;
+        }
+    }
 }
