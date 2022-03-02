@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BezierFollow : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BezierFollow : MonoBehaviour
 
     private Vector3 drugPosition;
 
+    [SerializeField]
     private float speedModifier;
 
     private bool coroutineAllowed;
@@ -22,7 +24,6 @@ public class BezierFollow : MonoBehaviour
         SwipeDetection.SwipeEvent += Swiped;
         routeToGo = 0;
         tParam = 0f;
-        speedModifier = 0.5f;
         coroutineAllowed = true;
     }
 
@@ -60,6 +61,8 @@ public class BezierFollow : MonoBehaviour
         if (routeToGo > routes.Length - 1)
             routeToGo = 0;
 
-        coroutineAllowed = true;
+        var drugMesh = gameObject.transform.GetChild(1);
+        drugMesh.gameObject.Destroy();
+        //SceneManager.LoadScene("Map");
     }
 }

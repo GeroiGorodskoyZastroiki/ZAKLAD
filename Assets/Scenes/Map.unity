@@ -391,6 +391,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3569558447226498558, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569558447226498558, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569558447226498558, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7054995821420338371, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -629,9 +641,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2113315769}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
-      propertyPath: spawnScale
-      value: 10
+      propertyPath: spawnRange
+      value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
+      propertyPath: spawnScale
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
+      propertyPath: zoneButton
+      value: 
+      objectReference: {fileID: 2113315769}
+    - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
+      propertyPath: orderButton
+      value: 
+      objectReference: {fileID: 2113315770}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
       propertyPath: PickUpButton
       value: 

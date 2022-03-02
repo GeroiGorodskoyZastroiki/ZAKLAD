@@ -16,7 +16,10 @@ public class AreaSpawner : MonoBehaviour
 	GameObject area;
 
 	[SerializeField]
-	float spawnScale = 100f;
+	float spawnScale = 20f;
+
+	[SerializeField]
+	float spawnRange = 100f;
 
 	[SerializeField]
 	Button orderButton;
@@ -43,7 +46,7 @@ public class AreaSpawner : MonoBehaviour
 		locations = new Vector2d[areaCount];
 		for (int i = 0; i < areaCount; i++)
 		{
-			locations[i] = map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-100,100), 0, Random.Range(-100, 100)));
+			locations[i] = map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange)));
 			var instance = Instantiate(area);
 			instance.GetComponent<Area>().location = locations[i];
 			instance.transform.localPosition = map.GeoToWorldPosition(locations[i], true) + new Vector3(0, 1, 0);
@@ -58,11 +61,13 @@ public class AreaSpawner : MonoBehaviour
     {
         if (drugs>0)
         {
-			orderButton.enabled = false;
-        }
+			orderButton.gameObject.SetActive(false);
+			orderInputField.gameObject.SetActive(false);
+		}
         else
         {
-			orderButton.enabled = true;
-        }
+			orderButton.gameObject.SetActive(true);
+			orderInputField.gameObject.SetActive(true);
+		}
     }
 }

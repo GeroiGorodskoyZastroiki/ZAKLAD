@@ -13,8 +13,8 @@ public class Area : MonoBehaviour
 
 	private void Awake()
     {
-		GameObject area = gameObject;
-		AbstractMap map = area.GetComponentInParent<AbstractMap>();
+		area = gameObject;
+		map = area.GetComponentInParent<AbstractMap>();
 	}
 
 	public Vector2d location;
@@ -29,8 +29,7 @@ public class Area : MonoBehaviour
     {
 		if (areaType == "PickUp")
         {
-			//map.GetComponent<AreaSpawner>().area;
-			//map.GetComponent<AreaSpawner>().SpawnArea("Drop");
+			map.GetComponent<AreaSpawner>().SpawnArea("Drop", drugsCount, 1);
         }
         else
         {
