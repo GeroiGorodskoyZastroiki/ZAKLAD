@@ -25,14 +25,23 @@ public class Area : MonoBehaviour
 
 	public float spawnScale = 100f;
 
-	//private void Update()
-	//{
-	//	if (area == null) { return; }
+    private void Update()
+    {
+        if (area.transform.lossyScale.x < 0.9)
+        {
+            area.transform.GetChild(0).gameObject.SetActive(false);
+            area.transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
 
-	//	area.transform.position = map.GeoToWorldPosition(location, true);
-	//	area.transform.localPosition += new Vector3(1, 1, 1);
-	//	area.transform.localScale = new Vector3(spawnScale * map.transform.lossyScale.x, spawnScale * map.transform.lossyScale.y, spawnScale * map.transform.lossyScale.z);
-	//}
+    //private void Update()
+    //{
+    //	if (area == null) { return; }
 
-	//spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale); // относительное отображение
+    //	area.transform.position = map.GeoToWorldPosition(location, true);
+    //	area.transform.localPosition += new Vector3(1, 1, 1);
+    //	area.transform.localScale = new Vector3(spawnScale * map.transform.lossyScale.x, spawnScale * map.transform.lossyScale.y, spawnScale * map.transform.lossyScale.z);
+    //}
+
+    //spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale); // относительное отображение
 }

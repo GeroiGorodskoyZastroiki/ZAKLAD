@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             float distance = Vector2.Distance(new(gameObject.transform.position.x, gameObject.transform.position.z), new(area.transform.position.x, area.transform.position.z));
             if (distance <= radius & distance < minDistance)
             {
-                //Debug.Log(radius);
+                Debug.Log(radius);
                 minDistanceArea = area;
                 minDistance = distance;
             }
