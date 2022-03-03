@@ -371,6 +371,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 260938841546495467, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 843921214}
+    - target: {fileID: 260938841546495467, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1674879243673342553}
+    - target: {fileID: 260938841546495467, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1674879243673342553}
     - target: {fileID: 2378493299834230624, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -642,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 2113315769}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
       propertyPath: spawnRange
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
       propertyPath: spawnScale
@@ -688,4 +700,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3812e49f244923246a57444c2bf99891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneButton: {fileID: 2113315769}
+  drugs: 0
+  neareastArea: {fileID: 0}

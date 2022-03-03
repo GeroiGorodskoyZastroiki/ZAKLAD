@@ -723,6 +723,7 @@ GameObject:
   - component: {fileID: 7054995822968825642}
   - component: {fileID: 7054995822968825643}
   - component: {fileID: 7054995822968825640}
+  - component: {fileID: 260938841546495467}
   m_Layer: 5
   m_Name: MapUI
   m_TagString: Untagged
@@ -815,3 +816,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &260938841546495467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054995822968825641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad72d54b4a7f0af4bb28a9d2f890229e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 0}
+  playerObject: {fileID: 0}
+  orderButton: {fileID: 7054995821420338371}
+  orderInputField: {fileID: 1936378428496567634}
+  zoneButton: {fileID: 2378493299834230624}
