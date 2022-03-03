@@ -63,6 +63,6 @@ public class BezierFollow : MonoBehaviour
 
         var drugMesh = gameObject.transform.GetChild(1);
         drugMesh.gameObject.Destroy();
-        //SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("Map");
     }
 }

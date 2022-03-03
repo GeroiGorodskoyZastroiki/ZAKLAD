@@ -654,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 2113315769}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1674879243971863908, guid: 80ae5fc5677bc734cacc694747d3e07c, type: 3}
       propertyPath: spawnScale
