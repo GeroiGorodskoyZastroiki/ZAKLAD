@@ -39,8 +39,9 @@ public class AreaSpawner : MonoBehaviour
 			var instance = Instantiate(area);
 			instance.GetComponent<Area>().location = locations[i];
 			instance.transform.localPosition = map.GeoToWorldPosition(locations[i], true) + new Vector3(0, 1, 0);
-			instance.transform.localScale = new Vector3(spawnScale, spawnScale, spawnScale);
+			instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
 			instance.transform.SetParent(map.transform);
+			instance.GetComponent<Area>().map = map;
 			instance.GetComponent<Area>().spawnScale = spawnScale;
 			instance.GetComponent<Area>().areaType = areaType;
 			instance.GetComponent<Area>().drugsCount = drugsCount;

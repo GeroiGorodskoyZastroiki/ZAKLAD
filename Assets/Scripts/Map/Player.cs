@@ -14,10 +14,8 @@ public class Player : MonoBehaviour
 
     public Area? neareastArea;
 
-    private void Start()
-    {
-        var map = gameObject.GetComponentInParent<AbstractMap>();
-    }
+    [SerializeField]
+    AbstractMap map;
 
     void Update()
     {
@@ -33,11 +31,11 @@ public class Player : MonoBehaviour
         {
             float textureRadius = area.GetComponent<SpriteRenderer>().sprite.textureRect.width / 2;
             float density = area.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-            float radius = (textureRadius / density) * area.spawnScale;
+            float radius = (textureRadius / density) * area.spawnScale * map.transform.localScale.x;
             float distance = Vector2.Distance(new(gameObject.transform.position.x, gameObject.transform.position.z), new(area.transform.position.x, area.transform.position.z));
             if (distance <= radius & distance < minDistance)
             {
-                Debug.Log(radius);
+                //Debug.Log(radius);
                 minDistanceArea = area;
                 minDistance = distance;
             }
