@@ -997,6 +997,10 @@ MonoBehaviour:
   orderButton: {fileID: 7054995821420338371}
   orderInputField: {fileID: 1936378428496567634}
   zoneButton: {fileID: 2378493299834230624}
+  dropAllButton: {fileID: 3944641160194604857}
+  lvlText: {fileID: 6587794383797043142}
+  xpText: {fileID: 8524632992906811236}
+  moneyText: {fileID: 7472646633968071886}
 --- !u!1 &7193233489789649831
 GameObject:
   m_ObjectHideFlags: 0

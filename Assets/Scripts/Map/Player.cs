@@ -7,9 +7,9 @@ using Mapbox.Unity.Utilities;
 
 public class Player : MonoBehaviour
 {
-    int money;
-    int xp;
-    int level;
+    public int money;
+    public int xp;
+    public int level;
     public int drugs;
 
     public Area? neareastArea;

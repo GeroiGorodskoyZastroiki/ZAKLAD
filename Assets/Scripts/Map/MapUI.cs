@@ -24,6 +24,18 @@ public class MapUI : MonoBehaviour
 	[SerializeField]
 	Button zoneButton;
 
+	[SerializeField]
+	Button dropAllButton;
+
+	[SerializeField]
+	Text lvlText;
+
+	[SerializeField]
+	Text xpText;
+
+	[SerializeField]
+	Text moneyText;
+
 	AreaSpawner areaSpawner;
 	Area area;
 	Player player;
@@ -34,6 +46,17 @@ public class MapUI : MonoBehaviour
 		areaSpawner = map.GetComponentInChildren<AreaSpawner>();
 		orderButton.onClick.AddListener(() => areaSpawner.SpawnArea("PickUp", 1, int.Parse(orderInputField.text)));
 		zoneButton.onClick.AddListener(() => UseZone());
+		dropAllButton.onClick.AddListener(() => DropAll());
+	}
+
+	private void DropAll()
+    {
+		player.drugs = 0;
+		var areas = map.GetComponentsInChildren<Area>();
+		foreach (var area in areas)
+        {
+			area.gameObject.Destroy();
+        }
 	}
 
 	private void UseZone()
@@ -47,14 +70,12 @@ public class MapUI : MonoBehaviour
 				{
 					areaSpawner.SpawnArea("Drop", area.drugsCount, 1);
 					area.gameObject.Destroy();
-					Debug.Log("PickUp");
 					player.drugs = area.drugsCount;
 				}
 				else
 				{
 					area.gameObject.Destroy();
 					player.drugs--;
-					Debug.Log("Drop");
 					SceneManager.LoadScene("CameraNew");
 				}
 			}
@@ -68,7 +89,11 @@ public class MapUI : MonoBehaviour
 
 	void Update()
 	{
-        try
+		lvlText.GetComponent<Text>().text = player.level.ToString();
+		xpText.GetComponent<Text>().text = player.xp.ToString();
+		moneyText.GetComponent<Text>().text = player.money.ToString();
+
+		try
         {
 			area = player.neareastArea;
 			if (area)
