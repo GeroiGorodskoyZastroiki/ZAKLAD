@@ -28,7 +28,6 @@ public class AreaSpawner : MonoBehaviour
 	public void Start()
 	{
 		map = gameObject.GetComponent<AbstractMap>();
-		LoadAreas();
 	}
 
     public void SpawnArea(string areaType, int areaCount, int drugsCount)
@@ -49,23 +48,22 @@ public class AreaSpawner : MonoBehaviour
 		}
 	}
 
-	public void LoadAreas()
-    {
-		if (GameManager.areas != null)
-        {
-			foreach (var area in GameManager.areas)
-            {
-				var instance = Instantiate(new Area());
-				instance.transform.localPosition = map.GeoToWorldPosition(area.location, true) + new Vector3(0, 1, 0);
-				instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
-				instance.transform.SetParent(map.transform);
-				instance.GetComponent<Area>().map = map;
-				instance.GetComponent<Area>().spawnScale = spawnScale;
-				instance.GetComponent<Area>().location = area.location;
-				instance.GetComponent<Area>().areaType = area.areaType;
-				instance.GetComponent<Area>().drugsCount = area.drugsCount;
-			}
-        }
-
-	}
+	//public void LoadAreas()
+ //   {
+	//	if (GameManager.areas != null)
+ //       {
+	//		foreach (var area in GameManager.areas)
+ //           {
+	//			var instance = Instantiate(new Area());
+	//			instance.transform.localPosition = map.GeoToWorldPosition(area.location, true) + new Vector3(0, 1, 0);
+	//			instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
+	//			instance.transform.SetParent(map.transform);
+	//			instance.GetComponent<Area>().map = map;
+	//			instance.GetComponent<Area>().spawnScale = spawnScale;
+	//			instance.GetComponent<Area>().location = area.location;
+	//			instance.GetComponent<Area>().areaType = area.areaType;
+	//			instance.GetComponent<Area>().drugsCount = area.drugsCount;
+	//		}
+ //       }
+	//}
 }

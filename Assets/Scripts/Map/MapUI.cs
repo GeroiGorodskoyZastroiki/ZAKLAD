@@ -75,11 +75,7 @@ public class MapUI : MonoBehaviour
 				else
 				{
 					area.gameObject.Destroy();
-					Debug.Log("ZoneDestroy");
 					player.drugs--;
-					Debug.Log("Drug--");
-					GameManager.SaveZones();
-					Debug.Log("ZonesSaves");
 					SceneManager.LoadScene("CameraNew");
 				}
 			}
