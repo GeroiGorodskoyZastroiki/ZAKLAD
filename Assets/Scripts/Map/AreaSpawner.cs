@@ -16,7 +16,7 @@ public class AreaSpawner : MonoBehaviour
 	GameObject area;
 
 	[SerializeField]
-	float spawnScale = 20f;
+	public float spawnScale = 20f;
 
 	[SerializeField]
 	float spawnRange = 100f;
@@ -42,7 +42,6 @@ public class AreaSpawner : MonoBehaviour
 			instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
 			instance.transform.SetParent(map.transform);
 			instance.GetComponent<Area>().map = map;
-			instance.GetComponent<Area>().spawnScale = spawnScale;
 			instance.GetComponent<Area>().areaType = areaType;
 			instance.GetComponent<Area>().drugsCount = drugsCount;
 		}

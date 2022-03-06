@@ -1,18 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Save : MonoBehaviour
+[System.Serializable]
+public class Save
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int money;
+    public int xp;
+    public int level;
+    public int drugs;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<AreaData> areaData;
+}
+
+[System.Serializable]
+public class AreaData
+{
+    public double[] location = new double[2];
+    public string areaType;
+    public int drugsCount;
 }

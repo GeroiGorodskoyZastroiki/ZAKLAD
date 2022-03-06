@@ -23,8 +23,6 @@ public class Area : MonoBehaviour
 
 	public int drugsCount;
 
-	public float spawnScale = 100f;
-
     private void Update()
     {
         if (map.transform.localScale.x < 0.35)

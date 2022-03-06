@@ -7,6 +7,12 @@ using Mapbox.Unity.Utilities;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public int money;
     public int xp;
     public int level;
@@ -31,7 +37,7 @@ public class Player : MonoBehaviour
         {
             float textureRadius = area.GetComponent<SpriteRenderer>().sprite.textureRect.width / 2;
             float density = area.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-            float radius = (textureRadius / density) * area.spawnScale * map.transform.localScale.x;
+            float radius = (textureRadius / density) * map.GetComponent<AreaSpawner>().spawnScale * map.transform.localScale.x;
             float distance = Vector2.Distance(new(gameObject.transform.position.x, gameObject.transform.position.z), new(area.transform.position.x, area.transform.position.z));
             if (distance <= radius & distance < minDistance)
             {

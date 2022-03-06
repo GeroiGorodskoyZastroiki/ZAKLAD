@@ -76,6 +76,8 @@ public class MapUI : MonoBehaviour
 				{
 					area.gameObject.Destroy();
 					player.drugs--;
+					SaveManager.Instance.PrepareSave();
+					SaveManager.Instance.Save();
 					SceneManager.LoadScene("CameraNew");
 				}
 			}
