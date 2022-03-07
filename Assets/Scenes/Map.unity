@@ -325,6 +325,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893cd746dddd0df4e8e48af8ffc8115c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save:
+    money: 0
+    xp: 0
+    level: 0
+    drugs: 0
+    areaData: []
 --- !u!4 &936641231
 Transform:
   m_ObjectHideFlags: 0
@@ -597,7 +603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1736383012007108897, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: spawnRange
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1736383012641218344, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: m_RootOrder

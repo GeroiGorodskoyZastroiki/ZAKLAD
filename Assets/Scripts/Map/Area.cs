@@ -37,7 +37,6 @@ public class Area : MonoBehaviour
             area.transform.GetChild(1).gameObject.SetActive(true);
             //area.transform.GetChild(2).gameObject.SetActive(false);
         }
-        //area.transform.GetChild(1).gameObject.transform.localScale += new Vector3 (spawnScale * 2, spawnScale * 2, spawnScale * 2); //не работает, т.к. привязано к map
 
         if (areaType == "PickUp")
         {

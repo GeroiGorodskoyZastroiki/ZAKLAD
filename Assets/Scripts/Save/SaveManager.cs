@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mapbox.Utils;
 
 public class SaveManager : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class SaveManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         Instance = this;
-        Load();
+        XmlLoad();
     }
 
-    public void PrepareSave()
+    public void Save()
     {
         save.xp = Player.Instance.xp;
         save.level = Player.Instance.level;
@@ -32,14 +33,36 @@ public class SaveManager : MonoBehaviour
             areaData.drugsCount = area.drugsCount;
             save.areaData.Add(areaData);
         }
+
+        XmlSave();
     }
 
-    public void Save()
+    public void XmlSave()
     {
         PlayerPrefs.SetString("save", Serializer.Serialize<Save>(save));
     }
 
     public void Load()
+    {
+        XmlLoad();
+
+        Player.Instance.xp = save.xp;
+        Player.Instance.level = save.level;
+        Player.Instance.money = save.money;
+        Player.Instance.drugs = save.drugs;
+
+        var areaSpawner = (AreaSpawner)FindObjectOfType(typeof(AreaSpawner));
+        if (save.areaData.Count > 0)
+        {
+            foreach (AreaData area in save.areaData)
+            {
+                Vector2d location = new Vector2d(area.location[0], area.location[1]);
+                areaSpawner.LoadArea(location, area.areaType, area.drugsCount);
+            }
+        }
+    }
+
+    public void XmlLoad()
     {
         if ( PlayerPrefs.HasKey("save"))
         {
@@ -48,7 +71,7 @@ public class SaveManager : MonoBehaviour
         else
         {
             save = new Save();
-            Save();
+            XmlSave();
         }
     }
 }
