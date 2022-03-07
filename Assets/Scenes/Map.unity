@@ -465,6 +465,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7054995821420338368, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -119.839355
+      objectReference: {fileID: 0}
     - target: {fileID: 7054995821420338371, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -585,6 +589,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7434941915781437049, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -119.84009
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112356598270485784, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -121.63135
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
@@ -652,6 +664,22 @@ PrefabInstance:
     - target: {fileID: 1736383012641218347, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: m_Name
       value: LocationBasedGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736383012745932738, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736383012745932738, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736383012745932738, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736383012745932738, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

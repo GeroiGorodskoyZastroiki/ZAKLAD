@@ -69,8 +69,9 @@ public class MapUI : MonoBehaviour
 				if (area.areaType == "PickUp")
 				{
 					areaSpawner.SpawnArea("Drop", area.drugsCount, 1);
-					area.gameObject.Destroy();
+					DestroyImmediate(area.gameObject);
 					player.drugs = area.drugsCount;
+					SaveManager.Instance.Save();
 				}
 				else
 				{
