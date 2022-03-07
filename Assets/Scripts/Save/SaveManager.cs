@@ -24,10 +24,12 @@ public class SaveManager : MonoBehaviour
 
         save.areaData.Clear();
         Area[] areas = (Area[])FindObjectsOfType(typeof(Area));
+        Debug.Log(areas.Length);
         foreach (Area area in areas)
         {
             AreaData areaData = new AreaData();
             areaData.location[0] = area.location.x;
+            Debug.Log(area.location.x);
             areaData.location[1] = area.location.y;
             areaData.areaType = area.areaType;
             areaData.drugsCount = area.drugsCount;

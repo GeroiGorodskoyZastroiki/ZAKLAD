@@ -74,7 +74,7 @@ public class MapUI : MonoBehaviour
 				}
 				else
 				{
-					area.gameObject.Destroy();
+					DestroyImmediate(area.gameObject);
 					player.drugs--;
 					SaveManager.Instance.Save();
 					SceneManager.LoadScene("CameraNew");
@@ -90,6 +90,23 @@ public class MapUI : MonoBehaviour
 
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			SaveManager.Instance.Load();
+		}
+
+		Area[] areas = (Area[])FindObjectsOfType(typeof(Area));
+		if (areas.Length > 0)
+		{
+			orderButton.gameObject.SetActive(false);
+			orderInputField.gameObject.SetActive(false);
+		}
+		else
+		{
+			orderButton.gameObject.SetActive(true);
+			orderInputField.gameObject.SetActive(true);
+		}
+
 		lvlText.GetComponent<Text>().text = player.level.ToString();
 		xpText.GetComponent<Text>().text = player.xp.ToString();
 		moneyText.GetComponent<Text>().text = player.money.ToString();
@@ -118,17 +135,5 @@ public class MapUI : MonoBehaviour
         {
 			zoneButton.gameObject.SetActive(false);
 		}
-
-		Area[] areas = (Area[])FindObjectsOfType(typeof(Area));
-		if (areas.Length > 0)
-        {
-            orderButton.gameObject.SetActive(false);
-            orderInputField.gameObject.SetActive(false);
-        }
-        else
-        {
-            orderButton.gameObject.SetActive(true);
-            orderInputField.gameObject.SetActive(true);
-        }
     }
 }

@@ -603,7 +603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1736383012007108897, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: spawnRange
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1736383012641218344, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: m_RootOrder

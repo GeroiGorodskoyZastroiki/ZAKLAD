@@ -35,7 +35,7 @@ public class Area : MonoBehaviour
         {
             area.transform.GetChild(0).gameObject.SetActive(true);
             area.transform.GetChild(1).gameObject.SetActive(true);
-            //area.transform.GetChild(2).gameObject.SetActive(false);
+            area.transform.GetChild(2).gameObject.SetActive(false);
         }
 
         if (areaType == "PickUp")
