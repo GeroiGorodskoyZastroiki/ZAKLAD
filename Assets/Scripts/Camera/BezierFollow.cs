@@ -29,8 +29,10 @@ public class BezierFollow : MonoBehaviour
 
     private void Swiped(Vector2 direction)
     {
-        if (coroutineAllowed)
+        if (coroutineAllowed & (Mathf.Abs(Input.acceleration.y) > 0.75))
+        {
             StartCoroutine(GoByTheRoute(routeToGo));
+        }
     }
 
     private IEnumerator GoByTheRoute(int routeNumber)
