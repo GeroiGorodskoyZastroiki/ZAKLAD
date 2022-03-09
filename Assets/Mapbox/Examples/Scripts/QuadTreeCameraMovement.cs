@@ -160,11 +160,11 @@
 		{
 			if (_useDegreeMethod)
 			{
-				UseDegreeConversion();
+				//UseDegreeConversion();
 			}
 			else
 			{
-				UseMeterConversion();
+				//UseMeterConversion();
 			}
 		}
 

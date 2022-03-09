@@ -9,6 +9,8 @@ public class Save
     public int drugs;
 
     public List<AreaData> areaData;
+
+    //public time = System.DateTime.Now;
 }
 
 [System.Serializable]

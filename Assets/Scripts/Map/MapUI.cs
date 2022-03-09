@@ -51,6 +51,7 @@ public class MapUI : MonoBehaviour
 
 	private void DropAll()
     {
+		player.money = player.drugs * 1000;
 		player.drugs = 0;
 		var areas = map.GetComponentsInChildren<Area>();
 		foreach (var area in areas)
