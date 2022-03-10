@@ -44,7 +44,7 @@ public class MapUI : MonoBehaviour
     {
 		player = playerObject.GetComponent<Player>();
 		areaSpawner = map.GetComponentInChildren<AreaSpawner>();
-		orderButton.onClick.AddListener(() => areaSpawner.SpawnArea("PickUp", 1, int.Parse(orderInputField.text)));
+		orderButton.onClick.AddListener(() => areaSpawner.SpawnAreas(1, "PickUp", int.Parse(orderInputField.text)));
 		zoneButton.onClick.AddListener(() => UseZone());
 		dropAllButton.onClick.AddListener(() => DropAll());
 	}
@@ -69,7 +69,7 @@ public class MapUI : MonoBehaviour
 			{
 				if (area.areaType == "PickUp")
 				{
-					areaSpawner.SpawnArea("Drop", area.drugsCount, 1);
+					areaSpawner.SpawnAreas(area.drugsCount, "Drop", 1);
 					DestroyImmediate(area.gameObject);
 					player.drugs = area.drugsCount;
 					SaveManager.Instance.Save();

@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
-using Mapbox.Unity.MeshGeneration.Factories;
-using Mapbox.Unity.Utilities;
 
 public class AreaSpawner : MonoBehaviour
 {
@@ -22,43 +19,43 @@ public class AreaSpawner : MonoBehaviour
 	float spawnRange = 100f;
 
 	AbstractMap map;
-	Vector2d[] locations;
 	public int drugs;
 
 	public void Start()
 	{
 		map = gameObject.GetComponent<AbstractMap>();
-		Invoke("Load", 2.5f);
+		Load();
 	}
 
     private void Load()
     {
-		SaveManager.Instance.Load();
+		while (true)
+        {
+			if (map.isActiveAndEnabled)
+			{
+				SaveManager.Instance.Load();
+				return;
+			}
+		}
 	}
 
-    public void SpawnArea(string areaType, int areaCount, int drugsCount)
-	{
-		locations = new Vector2d[areaCount];
+	public void SpawnAreas(int areaCount, string areaType, int drugsCount)
+    {
 		for (int i = 0; i < areaCount; i++)
-		{
-			locations[i] = map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange)));
-			var instance = Instantiate(area);
-			instance.transform.localPosition = map.GeoToWorldPosition(locations[i], true) + new Vector3(0, 0.1f, 0);
-			instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
-			instance.transform.SetParent(map.transform);
-			instance.GetComponent<Area>().map = map;
-			instance.GetComponent<Area>().location = locations[i];
-			instance.GetComponent<Area>().areaType = areaType;
-			instance.GetComponent<Area>().drugsCount = drugsCount;
-		}
+        {
+			LoadArea(GenerateLocation(), areaType, drugsCount);
+        }
+    }
+
+	public Vector2d GenerateLocation()
+    {
+		return map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange)));
 	}
 
     public void LoadArea(Vector2d location, string areaType, int drugsCount)
     {
 		var instance = Instantiate(area);
-		Debug.Log(location.x);
 		instance.transform.localPosition = map.GeoToWorldPosition(location, true) + new Vector3(0, 0.1f, 0);
-		Debug.Log(instance.transform.localPosition.x);
 		instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
 		instance.transform.SetParent(map.transform);
 		instance.GetComponent<Area>().map = map;

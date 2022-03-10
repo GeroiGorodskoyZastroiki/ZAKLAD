@@ -48,4 +48,9 @@ public class Player : MonoBehaviour
         }
         return minDistanceArea;
     }
+
+    void Pursuit()
+    {
+
+    }
 }

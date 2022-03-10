@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Mapbox.Utils;
 
@@ -13,6 +14,24 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Instance = this;
         XmlLoad();
+    }
+
+    public void Start()
+    {
+        DateTime now = DateTime.Now;
+        DateTime quit = DateTime.Parse(PlayerPrefs.GetString("Quit"));
+        if (quit != null)
+        {
+            if ((now - quit).Days > UnityEngine.Random.Range(1, 101))
+            {
+                //
+            }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetString ("Quit", DateTime.Now.ToString());
     }
 
     public void Save()
@@ -66,7 +85,7 @@ public class SaveManager : MonoBehaviour
 
     public void XmlLoad()
     {
-        if ( PlayerPrefs.HasKey("save"))
+        if (PlayerPrefs.HasKey("save"))
         {
             save = Serializer.Deserialize<Save>(PlayerPrefs.GetString("save"));
         }
