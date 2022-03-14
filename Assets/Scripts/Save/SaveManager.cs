@@ -34,25 +34,45 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetString ("Quit", DateTime.Now.ToString());
     }
 
-    public void Save()
+    public void Save(string target)
     {
-        save.xp = Player.Instance.xp;
-        save.level = Player.Instance.level;
-        save.money = Player.Instance.money;
-        save.drugs = Player.Instance.drugs;
-
-        save.areaData.Clear();
-        Area[] areas = (Area[])FindObjectsOfType(typeof(Area));
-        Debug.Log(areas.Length);
-        foreach (Area area in areas)
+        switch (target)
         {
-            AreaData areaData = new AreaData();
-            areaData.location[0] = area.location.x;
-            Debug.Log(area.location.x);
-            areaData.location[1] = area.location.y;
-            areaData.areaType = area.areaType;
-            areaData.drugsCount = area.drugsCount;
-            save.areaData.Add(areaData);
+            case "Player":
+                SavePlayer();
+                break;
+            case "Area":
+                SaveAreas();
+                break;
+            case "All":
+                SavePlayer();
+                SaveAreas();
+                break;
+        }
+
+        void SavePlayer()
+        {
+            save.xp = Player.Instance.xp;
+            save.level = Player.Instance.level;
+            save.money = Player.Instance.money;
+            save.drugs = Player.Instance.drugs;
+        }
+
+        void SaveAreas()
+        {
+            save.areaData.Clear();
+            Area[] areas = (Area[])FindObjectsOfType(typeof(Area));
+            Debug.Log(areas.Length);
+            foreach (Area area in areas)
+            {
+                AreaData areaData = new AreaData();
+                areaData.location[0] = area.location.x;
+                Debug.Log(area.location.x);
+                areaData.location[1] = area.location.y;
+                areaData.areaType = area.areaType;
+                areaData.drugsCount = area.drugsCount;
+                save.areaData.Add(areaData);
+            }
         }
 
         XmlSave();

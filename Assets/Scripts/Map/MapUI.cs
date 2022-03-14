@@ -72,13 +72,13 @@ public class MapUI : MonoBehaviour
 					areaSpawner.SpawnAreas(area.drugsCount, "Drop", 1);
 					DestroyImmediate(area.gameObject);
 					player.drugs = area.drugsCount;
-					SaveManager.Instance.Save();
+					SaveManager.Instance.Save("All");
 				}
 				else
 				{
 					DestroyImmediate(area.gameObject);
 					player.drugs--;
-					SaveManager.Instance.Save();
+					SaveManager.Instance.Save("All");
 					SceneManager.LoadScene("CameraNew");
 				}
 			}
