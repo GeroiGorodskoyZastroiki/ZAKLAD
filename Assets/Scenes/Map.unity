@@ -432,7 +432,7 @@ PrefabInstance:
     - target: {fileID: 260938841546495467, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: playerObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1736383012313617951}
     - target: {fileID: 2378493299834230624, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -465,9 +465,21 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6062030908851813785, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6552115116524749165, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -540
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552115116524749165, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 960.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552115116524749165, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7054995821420338368, guid: 35391129ef4ff114681bddac9ab673f0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -695,3 +707,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+--- !u!1 &1736383012313617951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5544373312227521559, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+  m_PrefabInstance: {fileID: 1736383012313617950}
+  m_PrefabAsset: {fileID: 0}
