@@ -16,25 +16,28 @@ public class MapUI : MonoBehaviour
 	GameObject playerObject;
 
 	[SerializeField]
-	Button orderButton;
+	Button settingsButton, workButton, profileButton;
+
+	[SerializeField]
+	Button generateZones, clearProgressButton;
+
+	[SerializeField]
+	Button dropAllButton, orderButton, zoneButton;
+
+	[SerializeField]
+	Button moreButton, lessButton;
 
 	[SerializeField]
 	InputField orderInputField;
 
 	[SerializeField]
-	Button zoneButton;
+	Text drugs;
 
 	[SerializeField]
-	Button dropAllButton;
+	RawImage avatar;
 
 	[SerializeField]
-	Text lvlText;
-
-	[SerializeField]
-	Text xpText;
-
-	[SerializeField]
-	Text moneyText;
+	Text nickname, lvlText, xpText, moneyText;
 
 	AreaSpawner areaSpawner;
 	Area area;

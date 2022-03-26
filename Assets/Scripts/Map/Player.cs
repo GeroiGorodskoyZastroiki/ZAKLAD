@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
         Instance = this;
     }
 
+    public string nickname;
     public int money;
     public int xp;
     public int level;
@@ -22,6 +23,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     AbstractMap map;
+
+    private void Start()
+    {
+        nickname = gameObject.GetComponent<Nickname>().GenerateName();
+    }
 
     void Update()
     {

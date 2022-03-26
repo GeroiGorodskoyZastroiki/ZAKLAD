@@ -706,10 +706,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 0}
   playerObject: {fileID: 0}
-  orderButton: {fileID: 0}
-  orderInputField: {fileID: 0}
-  zoneButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  workButton: {fileID: 0}
+  profileButton: {fileID: 0}
+  generateZones: {fileID: 0}
+  clearProgressButton: {fileID: 0}
   dropAllButton: {fileID: 0}
+  orderButton: {fileID: 0}
+  zoneButton: {fileID: 0}
+  moreButton: {fileID: 0}
+  lessButton: {fileID: 0}
+  orderInputField: {fileID: 0}
+  drugs: {fileID: 0}
+  avatar: {fileID: 0}
+  nickname: {fileID: 0}
   lvlText: {fileID: 0}
   xpText: {fileID: 0}
   moneyText: {fileID: 0}
@@ -750,7 +760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 955}
+  m_AnchoredPosition: {x: -540, y: 960}
   m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8898173170371509060
