@@ -56,6 +56,7 @@ public class SaveManager : MonoBehaviour
             save.level = Player.Instance.level;
             save.money = Player.Instance.money;
             save.drugs = Player.Instance.drugs;
+            save.nickname = Player.Instance.nickname;
         }
 
         void SaveAreas()

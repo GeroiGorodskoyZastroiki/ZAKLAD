@@ -124,11 +124,11 @@ public class MapUI : MonoBehaviour
 				zoneButton.gameObject.SetActive(true);
 				if (area.areaType == "PickUp")
 				{
-					zoneButton.gameObject.GetComponentInChildren<Text>().text = "Подобрать";
+					//zoneButton.gameObject.GetComponentInChildren<Text>().text = "Подобрать";
 				}
 				else
 				{
-					zoneButton.gameObject.GetComponentInChildren<Text>().text = "Оставить";
+					//zoneButton.gameObject.GetComponentInChildren<Text>().text = "Оставить";
 				}
 			}
             else

@@ -55,8 +55,21 @@ public class Player : MonoBehaviour
         return minDistanceArea;
     }
 
-    void Pursuit()
-    {
+    //StartCoroutine(Pursuit());
 
+    private IEnumerator Pursuit()
+    {
+        var pursuitDistance = 0.0005;
+        var initialPosition = map.WorldToGeoPosition(Instance.gameObject.transform.position);
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(1);
+            var currentPosition = map.WorldToGeoPosition(Instance.gameObject.transform.position);
+            if (Vector2d.Distance(currentPosition, initialPosition) > pursuitDistance)
+            {
+                yield break;
+            }
+        }
+        //концовка
     }
 }

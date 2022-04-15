@@ -7,6 +7,7 @@ public class Save
     public int xp;
     public int level;
     public int drugs;
+    public string nickname;
 
     public List<AreaData> areaData;
 }
