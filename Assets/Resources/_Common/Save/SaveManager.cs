@@ -29,11 +29,6 @@ public class SaveManager : MonoBehaviour
     //    }
     //}
 
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetString ("Quit", DateTime.Now.ToString());
-    }
-
     public void Save(string target)
     {
         switch (target)
@@ -52,10 +47,6 @@ public class SaveManager : MonoBehaviour
 
         void SavePlayer()
         {
-            //save.xp = Player.Instance.xp;
-            //save.level = Player.Instance.level;
-            //save.money = Player.Instance.money;
-            //save.nickname = Player.Instance.nickname;
             save.drugsStats = Player.Instance.drugsStats;
             save.drugsStock = Player.Instance.drugsStock;
         }
@@ -76,7 +67,6 @@ public class SaveManager : MonoBehaviour
                 save.areaData.Add(areaData);
             }
         }
-
         XmlSave();
     }
 
@@ -88,10 +78,6 @@ public class SaveManager : MonoBehaviour
     public void Load()
     {
         XmlLoad();
-
-        //Player.Instance.xp = save.xp;
-        //Player.Instance.level = save.level;
-        //Player.Instance.money = save.money;
         Player.Instance.drugsStock = save.drugsStock;
         Player.Instance.drugsStats = save.drugsStats;
 

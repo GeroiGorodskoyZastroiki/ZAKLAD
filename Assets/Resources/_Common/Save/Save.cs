@@ -3,11 +3,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Save
 {
-    //public int money;
-    //public int xp;
-    //public int level;
-    //public string nickname;
-
     public int drugsStats;
     public int drugsStock;
 

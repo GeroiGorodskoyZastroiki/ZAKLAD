@@ -43,7 +43,7 @@ public class MapUI : MonoBehaviour
 
 	void Start()
 	{
-		SetCurrentTab(null);
+		NullTab();
 		notification.gameObject.SetActive(false);
 		player = playerObject.GetComponent<Player>();
 		areaManager = map.GetComponentInChildren<AreaManager>();
@@ -52,6 +52,11 @@ public class MapUI : MonoBehaviour
     private void Update()
     {
 		UpdateUI();
+	}
+
+	public void NullTab()
+    {
+		SetCurrentTab(null);
 	}
 
     public void Settings()
@@ -114,19 +119,9 @@ public class MapUI : MonoBehaviour
 				areaManager.SpawnDropAreas(int.Parse(orderInputField.text));
 				break;
 			case "Сбросить товар":
-				LoadCamera();
-				DestroyImmediate(player.inArea.gameObject); //Подождать корутиной?
-				player.drugsStock--; //ДЕЛАТЬ ПОСЛЕ СБРОСА
-				player.drugsStats++;
+				SceneManager.LoadSceneAsync("CameraNew", LoadSceneMode.Additive);
 				break;
 		}
-	}
-
-	void LoadCamera()
-    {
-		SceneManager.LoadSceneAsync("CameraNew", LoadSceneMode.Additive);
-		map.gameObject.transform.root.gameObject.SetActive(false);
-		gameObject.SetActive(false);
 	}
 
 	public void UnderstandNotification()
@@ -149,7 +144,7 @@ public class MapUI : MonoBehaviour
 		}
         else
         {
-			if (!areaManager.PickUpArea)
+			if (player.drugsStock == 0)
             {
 				zoneButton.GetComponentInChildren<TMP_Text>().text = "Заказать товар";
 			}
@@ -159,7 +154,7 @@ public class MapUI : MonoBehaviour
 			}
 		}
 
-		drugsStockText.text = String.Format("В НАЛИЧИИ: {0} ШТ.", player.drugsStock);
-		drugsStatsText.text = "Кладов: " + player.drugsStock.ToString();
+		drugsStockText.text = string.Format("В НАЛИЧИИ: {0} ШТ.", player.drugsStock);
+		drugsStatsText.text = "Кладов: " + player.drugsStats.ToString();
     }
 }

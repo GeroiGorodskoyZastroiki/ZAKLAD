@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
             float textureRadius = 100;
             float density = area.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
             float radius = (textureRadius / density) * areaManager.spawnScale * map.transform.localScale.x;
-            print(radius);
+            //print(radius);
             return radius;
         }
 

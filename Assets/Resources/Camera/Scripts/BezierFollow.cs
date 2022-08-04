@@ -29,9 +29,12 @@ public class BezierFollow : MonoBehaviour
 
     private void Swiped(Vector2 direction)
     {
-        if (coroutineAllowed & (Mathf.Abs(Input.acceleration.y) > 0.75))
+        if (coroutineAllowed)
         {
-            StartCoroutine(GoByTheRoute(routeToGo));
+            //if (Mathf.Abs(Input.acceleration.y) > 0.75)
+            //{
+                StartCoroutine(GoByTheRoute(routeToGo));
+            //}
         }
     }
 
@@ -65,9 +68,7 @@ public class BezierFollow : MonoBehaviour
 
         var drugMesh = gameObject.transform.GetChild(1);
         drugMesh.gameObject.Destroy();
-        //SaveManager.Instance.save.xp += 10;
-        //SaveManager.Instance.save.money += 100;
-        SaveManager.Instance.XmlSave();
-        SceneManager.LoadScene("Map");
+        //SaveManager.Instance.XmlSave();
+        SceneManager.UnloadSceneAsync("CameraNew");
     }
 }

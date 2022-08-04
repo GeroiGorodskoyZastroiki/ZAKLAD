@@ -36,12 +36,12 @@ public class AreaManager : MonoBehaviour
         EscapeArea = FindObjectOfType<EscapeArea>();
     }
 
-    public void RegenerateZones() //ïğîâåğèòü
+    public void RegenerateZones()
     {
         if (PickUpArea)
         {
             SpawnPickUpArea(PickUpArea.drugsCount);
-            DestroyImmediate(PickUpArea);
+            DestroyImmediate(PickUpArea.gameObject);
             return;
         }
         if (DropAreas.Length > 0)
@@ -53,31 +53,6 @@ public class AreaManager : MonoBehaviour
             }
         }
     }
-
-    //void Update() //ÍÀÏÈÑÀÒÜ ÎÁÍÎÂËÅÍÈÅ ÒĞÀÍÑÔÎĞÌÀ ÄËß ÊÀÆÄÎÉ ÇÎÍÛ
-    //{
-    //	if (map.transform.localScale.x < 0.35)
-    //	{
-    //		gameObject.transform.GetChild(0).gameObject.SetActive(false);
-    //		gameObject.transform.GetChild(1).gameObject.SetActive(false);
-    //		//area.transform.GetChild(2).gameObject.SetActive(true);
-    //	}
-    //	else
-    //	{
-    //		gameObject.transform.GetChild(0).gameObject.SetActive(true);
-    //		gameObject.transform.GetChild(1).gameObject.SetActive(true);
-    //		gameObject.transform.GetChild(2).gameObject.SetActive(false);
-    //	}
-
-    //	if (areaType == "PickUp")
-    //	{
-    //		gameObject.transform.GetChild(1).gameObject.SetActive(false);
-    //	}
-    //	else
-    //	{
-    //		gameObject.transform.GetChild(0).gameObject.SetActive(false);
-    //	}
-    //}
 
     void Load()
     {
@@ -115,7 +90,7 @@ public class AreaManager : MonoBehaviour
 
     Vector2d GenerateRandomLocation()
     {
-		return map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange)));
+		return map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange)) * map.transform.lossyScale.x);
 	}
 
     GameObject SpawnArea(Vector2d location, GameObject area)
