@@ -24,7 +24,7 @@
 			_locationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated; ;
 		}
 
-		void LocationProvider_OnLocationUpdated(Unity.Location.Location location)
+        void LocationProvider_OnLocationUpdated(Unity.Location.Location location)
 		{
 			_locationProvider.OnLocationUpdated -= LocationProvider_OnLocationUpdated;
 			_map.Initialize(location.LatitudeLongitude, _map.AbsoluteZoom);

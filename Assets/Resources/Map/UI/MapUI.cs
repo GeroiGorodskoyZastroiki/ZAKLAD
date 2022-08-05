@@ -124,34 +124,46 @@ public class MapUI : MonoBehaviour
 		}
 	}
 
-	public void UnderstandNotification()
+	public void ShowNotification()
+    {
+		notification.gameObject.SetActive(true);
+	}
+
+	public void HideNotification()
     {
 		notification.gameObject.SetActive(false);
     }
 
 	void UpdateUI()
     {
-		if (player.inArea)
+		if (!areaManager.EscapeArea)
         {
-			if (player.inArea.GetType().Name == "PickUpArea")
-            {
-				zoneButton.GetComponentInChildren<TMP_Text>().text = "Подобрать товар";
+			if (player.inArea)
+			{
+				if (player.inArea.GetType().Name == "PickUpArea")
+				{
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "Подобрать товар";
+				}
+				else
+				{
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "Сбросить товар";
+				}
 			}
-            else
-            {
-				zoneButton.GetComponentInChildren<TMP_Text>().text = "Сбросить товар";
+			else
+			{
+				if (!areaManager.PickUpArea && areaManager.DropAreas.Length == 0)
+				{
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "Заказать товар";
+				}
+				else
+				{
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "---";
+				}
 			}
 		}
         else
         {
-			if (player.drugsStock == 0)
-            {
-				zoneButton.GetComponentInChildren<TMP_Text>().text = "Заказать товар";
-			}
-            else
-            {
-				zoneButton.GetComponentInChildren<TMP_Text>().text = "---";
-			}
+			zoneButton.GetComponentInChildren<TMP_Text>().text = "---";
 		}
 
 		drugsStockText.text = string.Format("В НАЛИЧИИ: {0} ШТ.", player.drugsStock);

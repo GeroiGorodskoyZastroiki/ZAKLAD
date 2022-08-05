@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbf18ba70eff754787c89bad8ed2b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caughtRate: 0.3
   player: {fileID: 191717682}
   mapUI: {fileID: 1598997706}
   areaManager: {fileID: 512844727}

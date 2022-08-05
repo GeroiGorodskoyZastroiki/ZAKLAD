@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EscapeArea : Area
 {
-
+    public int timeToEscape;
 }

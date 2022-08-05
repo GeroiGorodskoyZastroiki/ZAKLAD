@@ -85,7 +85,7 @@ public class AreaManager : MonoBehaviour
 
     public void SpawnEscapeArea()
     {
-        SpawnArea(new Vector2d(player.transform.position.x, player.transform.position.y), EscapeAreaPrefab);//Проверить
+        SpawnArea(map.WorldToGeoPosition(player.transform.position), EscapeAreaPrefab);//Проверить
     }
 
     Vector2d GenerateRandomLocation()
@@ -100,5 +100,15 @@ public class AreaManager : MonoBehaviour
         instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
         instance.transform.SetParent(map.transform);
         return instance;
+    }
+
+    public float GetRadius(GameObject area)
+    {
+        SpriteRenderer checkObject = area.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        float textureRadius = checkObject.sprite.textureRect.width * checkObject.gameObject.transform.localScale.x / 4;
+        float density = area.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        float radius = (textureRadius / density) * spawnScale * map.transform.localScale.x;
+        //print(radius);
+        return radius;
     }
 }
