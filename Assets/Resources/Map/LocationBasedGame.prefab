@@ -621,8 +621,11 @@ MonoBehaviour:
   PickUpAreaPrefab: {fileID: 7954058903947339816, guid: 245e3b22148f8a44eb5d8e27b4a73db1, type: 3}
   DropAreaPrefab: {fileID: 7954058903947339816, guid: 8f323a8bf73a0934791e95d625dfae4f, type: 3}
   EscapeAreaPrefab: {fileID: 7954058903947339816, guid: ff308d685364d7b48a3957f2da63c774, type: 3}
-  spawnScale: 20
-  spawnRange: 10
+  spawnScale: 15
+  spawnRange: 100
+  PickUpArea: {fileID: 0}
+  DropAreas: []
+  EscapeArea: {fileID: 0}
 --- !u!1 &1736383012071727418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,5 +1231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drugsStock: 0
   drugsStats: 0
-  neareastArea: {fileID: 0}
+  inArea: {fileID: 0}
   map: {fileID: 1736383012007108896}
+  areaManager: {fileID: 0}

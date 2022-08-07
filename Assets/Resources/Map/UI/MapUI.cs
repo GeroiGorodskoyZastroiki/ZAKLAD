@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,14 +37,20 @@ public class MapUI : MonoBehaviour
 	[SerializeField]
 	TMP_Text drugsStatsText;
 
+	[SerializeField]
+	Splash splash;
+
 	AreaManager areaManager;
 	Area area;
 	Player player;
 
-	void Start()
+	public TMP_Text timer;
+
+    void Start()
 	{
 		NullTab();
 		notification.gameObject.SetActive(false);
+		Splash.onSplashEnd += ShowNotificationSave;
 		player = playerObject.GetComponent<Player>();
 		areaManager = map.GetComponentInChildren<AreaManager>();
 	}
@@ -111,21 +117,28 @@ public class MapUI : MonoBehaviour
 		var zoneButtonText = zoneButton.GetComponentInChildren<TMP_Text>().text;
 		switch (zoneButtonText)
         {
-			case "�������� �����":
+			case "Заказать товар":
 				areaManager.SpawnPickUpArea(int.Parse(orderInputField.text));
 				break;
-			case "��������� �����":
+			case "Подобрать товар":
 				player.drugsStock = areaManager.PickUpArea.drugsCount;
 				areaManager.SpawnDropAreas(int.Parse(orderInputField.text));
 				break;
-			case "�������� �����":
+			case "Сбросить товар":
 				SceneManager.LoadSceneAsync("CameraNew", LoadSceneMode.Additive);
 				break;
 		}
 	}
 
-	public void ShowNotification()
+	public void ShowNotificationSave()
     {
+		notification.gameObject.GetComponentInChildren<TMP_Text>().text = "В ДАННОЙ ВЕРСИИ ИГРЫ НЕТ СОХРАНЕНИЙ. ПРЕДПОЛАГАЕТСЯ ЦИКЛ: УСТАНОВИЛ → ПОРЖАЛ → УДАЛИЛ";
+		notification.gameObject.SetActive(true);
+	}
+
+	public void ShowNotificationPursuit()
+	{
+		notification.gameObject.GetComponentInChildren<TMP_Text>().text = "ВЫ ПОПАЛИ В ПОЛИЦЕЙСКУЮ ЗАСАДУ. ВЫРВИТЕСЬ ИЗ ОЦЕПЛЕНИЯ, ПОКА НЕ ИСТЁК ТАЙМЕР";
 		notification.gameObject.SetActive(true);
 	}
 
@@ -133,6 +146,16 @@ public class MapUI : MonoBehaviour
     {
 		notification.gameObject.SetActive(false);
     }
+
+	public void SplashCompany()
+	{
+		StartCoroutine(splash.SplashCompany());
+	}
+
+	public void SplashEndGame()
+	{
+		StartCoroutine(splash.SplashEndGame());
+	}
 
 	void UpdateUI()
     {
@@ -142,18 +165,18 @@ public class MapUI : MonoBehaviour
 			{
 				if (player.inArea.GetType().Name == "PickUpArea")
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "��������� �����";
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "Подобрать товар";
 				}
 				else
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "�������� �����";
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "Сбросить товар";
 				}
 			}
 			else
 			{
 				if (!areaManager.PickUpArea && areaManager.DropAreas.Length == 0)
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "�������� �����";
+					zoneButton.GetComponentInChildren<TMP_Text>().text = "Заказать товар";
 				}
 				else
 				{
@@ -166,7 +189,7 @@ public class MapUI : MonoBehaviour
 			zoneButton.GetComponentInChildren<TMP_Text>().text = "---";
 		}
 
-		drugsStockText.text = string.Format("� �������: {0} ��.", player.drugsStock);
-		drugsStatsText.text = "������: " + player.drugsStats.ToString();
+		drugsStockText.text = string.Format("В НАЛИЧИИ: {0} ШТ.", player.drugsStock);
+		drugsStatsText.text = "Кладов: " + player.drugsStats.ToString();
     }
 }
