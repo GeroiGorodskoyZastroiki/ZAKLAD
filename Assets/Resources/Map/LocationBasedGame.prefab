@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736383010712995392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.677399, y: 12.257265, z: 21.646572}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -479,7 +479,7 @@ MonoBehaviour:
     scalingOptions:
       scalingType: 1
       unityTileSize: 100
-    loadingTexture: {fileID: 2800000, guid: e2896a92727704803a9c422b043eae89, type: 3}
+    loadingTexture: {fileID: 2800000, guid: 56bda6c084f930740b6291246035df2c, type: 3}
     tileMaterial: {fileID: 2100000, guid: b9f23e9bce724fa4daac57ecded470b8, type: 2}
   _initializeOnStart: 1
   _imagery:
@@ -620,7 +620,7 @@ MonoBehaviour:
   player: {fileID: 5544373312227521559}
   PickUpAreaPrefab: {fileID: 7954058903947339816, guid: 245e3b22148f8a44eb5d8e27b4a73db1, type: 3}
   DropAreaPrefab: {fileID: 7954058903947339816, guid: 8f323a8bf73a0934791e95d625dfae4f, type: 3}
-  EscapeAreaPrefab: {fileID: 7954058903947339816, guid: ff308d685364d7b48a3957f2da63c774, type: 3}
+  EscapeAreaPrefab: {fileID: 7954058903947339816, guid: c3e3a63997d36bb4b8278cd9864c930b, type: 3}
   spawnScale: 15
   spawnRange: 100
   PickUpArea: {fileID: 0}
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _desiredAccuracyInMeters: 1
   _updateDistanceInMeters: 0.5
-  _updateTimeInMilliSeconds: 500
+  _updateTimeInMilliSeconds: 100
   _userHeadingSmoothing: {fileID: 1736383012161211646}
   _deviceOrientationSmoothing: {fileID: 1736383011815991719}
   _editorDebuggingOnly:
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _updateDistanceInMeters: 0.5
-  _updateTimeInMilliSeconds: 500
+  _updateTimeInMilliSeconds: 100
 --- !u!1 &1736383012590495752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,8 +1030,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736383012745932742}
-  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 57.3, z: -33.65}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 60, z: -35}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1122,7 +1122,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737006315928485435}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   _subtractUserHeading: 0
   _rotationFollowFactor: 2
   _rotateZ: 0
-  _useNegativeAngle: 0
+  _useNegativeAngle: 1
   _useTransformLocationProvider: 0
 --- !u!1 &5544373312227521559
 GameObject:
@@ -1188,7 +1188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5544373312227521559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2299796, y: 0.1, z: 0.35260934}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1233,4 +1233,4 @@ MonoBehaviour:
   drugsStats: 0
   inArea: {fileID: 0}
   map: {fileID: 1736383012007108896}
-  areaManager: {fileID: 0}
+  areaManager: {fileID: 1736383012007108897}

@@ -741,6 +741,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle.001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736383012007108896, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: _options.loadingTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 56bda6c084f930740b6291246035df2c, type: 3}
+    - target: {fileID: 1736383012007108897, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: spawnRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1736383012007108897, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: spawnScale
       value: 20
@@ -796,6 +804,14 @@ PrefabInstance:
     - target: {fileID: 1736383012641218347, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: m_Name
       value: LocationBasedGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737006315928485432, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: _useNegativeAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737006315928485432, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: _useDeviceOrientation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5085033225601001067, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: areaManager
