@@ -23,10 +23,12 @@ public class Splash : MonoBehaviour
     {
         gameObject.SetActive(true);
         splashImage.sprite = companySplash;
+        GetComponentInChildren<AudioSource>().Play();
         animator.Play("Wait");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         animator.Play("FadeOut");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        yield return new WaitForSeconds(1);
         onSplashEnd.Invoke();
         gameObject.SetActive(false);
         yield break;

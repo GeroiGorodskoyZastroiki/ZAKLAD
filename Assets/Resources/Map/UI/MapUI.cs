@@ -17,7 +17,7 @@ public class MapUI : MonoBehaviour
 	GameObject playerObject;
 
 	[SerializeField]
-	RectTransform notification;
+	GameObject notificationPrefab;
 
 	[SerializeField]
 	RectTransform background, settings, work, profile;
@@ -40,27 +40,32 @@ public class MapUI : MonoBehaviour
 	[SerializeField]
 	Splash splash;
 
+	public TMP_Text timer;
+
 	AreaManager areaManager;
 	Area area;
 	Player player;
 
-	public TMP_Text timer;
+	public string saveNotification = "СЕЙЧАС В ИГРЕ НЕТ СОХРАНЕНИЙ. ПРЕДПОЛАГАЕТСЯ ЦИКЛ: УСТАНОВИЛ - ПОРЖАЛ - УДАЛИЛ";
+	public string pursuitNotification = "ВЫ ПОПАЛИ В ПОЛИЦЕЙСКУЮ ЗАСАДУ. ВЫРВИТЕСЬ ИЗ ОЦЕПЛЕНИЯ, ПОКА НЕ ИСТЁК ТАЙМЕР";
+	public string tutorialNotification = "ЗАКАЗЫВАЙТЕ ТОВАР, ПОДБИРАЙТЕ ЕГО, РАЗНОСИТЕ ПО АДРЕСАМ И СБРАСЫВАЙТЕ";
 
-    void Start()
+	void Start()
 	{
 		NullTab();
-		notification.gameObject.SetActive(false);
-		Splash.onSplashEnd += ShowNotificationSave;
+		Splash.onSplashEnd += SplashEnded;
 		player = playerObject.GetComponent<Player>();
-		areaManager = map.GetComponentInChildren<AreaManager>();
+		areaManager = map.gameObject.GetComponent<AreaManager>();
 	}
 
-    private void Update()
+    void Update()
     {
 		UpdateUI();
 	}
 
-	public void NullTab()
+    #region [Tabs]
+
+    public void NullTab()
     {
 		SetCurrentTab(null);
 	}
@@ -97,12 +102,20 @@ public class MapUI : MonoBehaviour
 		}
 	}
 
-	public void RegenerateZones()
+    #endregion [Tabs]
+
+    #region [Settings]
+
+    public void RegenerateZones()
     {
 		areaManager.RegenerateZones();
 	}
 
-	public void OrderMore()
+    #endregion [Settings]
+
+    #region [Work]
+
+    public void OrderMore()
     {
 		orderInputField.text = (Math.Clamp((int.Parse(orderInputField.text) + 1), 1, 99)).ToString();
     }
@@ -130,24 +143,29 @@ public class MapUI : MonoBehaviour
 		}
 	}
 
-	public void ShowNotificationSave()
+	#endregion [Work]
+
+	#region [Notifications]
+
+	public void ShowNotification(string text)
     {
-		notification.gameObject.GetComponentInChildren<TMP_Text>().text = "В ДАННОЙ ВЕРСИИ ИГРЫ НЕТ СОХРАНЕНИЙ. ПРЕДПОЛАГАЕТСЯ ЦИКЛ: УСТАНОВИЛ → ПОРЖАЛ → УДАЛИЛ";
-		notification.gameObject.SetActive(true);
+		Instantiate(notificationPrefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform).gameObject.GetComponentInChildren<TMP_Text>().text = text;
 	}
 
-	public void ShowNotificationPursuit()
-	{
-		notification.gameObject.GetComponentInChildren<TMP_Text>().text = "ВЫ ПОПАЛИ В ПОЛИЦЕЙСКУЮ ЗАСАДУ. ВЫРВИТЕСЬ ИЗ ОЦЕПЛЕНИЯ, ПОКА НЕ ИСТЁК ТАЙМЕР";
-		notification.gameObject.SetActive(true);
-	}
-
-	public void HideNotification()
+	public void ForceHideNotification()
     {
-		notification.gameObject.SetActive(false);
+		var notification = FindObjectOfType<Notification>();
+		if (notification)
+		{
+			Destroy(notification.gameObject);
+		}
     }
 
-	public void SplashCompany()
+    #endregion [Notifications]
+
+    #region [Splash]
+
+    public void SplashCompany()
 	{
 		StartCoroutine(splash.SplashCompany());
 	}
@@ -157,36 +175,45 @@ public class MapUI : MonoBehaviour
 		StartCoroutine(splash.SplashEndGame());
 	}
 
-	void UpdateUI()
+	void SplashEnded()
+	{
+		ShowNotification(tutorialNotification);
+		ShowNotification(saveNotification);
+	}
+
+    #endregion [Splash]
+
+    void UpdateUI()
     {
+		var zoneButtonText = zoneButton.GetComponentInChildren<TMP_Text>();
 		if (!areaManager.EscapeArea)
         {
 			if (player.inArea)
 			{
 				if (player.inArea.GetType().Name == "PickUpArea")
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "Подобрать товар";
+					zoneButtonText.text = "Подобрать товар";
 				}
 				else
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "Сбросить товар";
+					zoneButtonText.text = "Сбросить товар";
 				}
 			}
 			else
 			{
 				if (!areaManager.PickUpArea && areaManager.DropAreas.Length == 0)
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "Заказать товар";
+					zoneButtonText.text = "Заказать товар";
 				}
 				else
 				{
-					zoneButton.GetComponentInChildren<TMP_Text>().text = "---";
+					zoneButtonText.text = "---";
 				}
 			}
 		}
         else
         {
-			zoneButton.GetComponentInChildren<TMP_Text>().text = "---";
+			zoneButtonText.text = "---";
 		}
 
 		drugsStockText.text = string.Format("В НАЛИЧИИ: {0} ШТ.", player.drugsStock);

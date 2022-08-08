@@ -615,6 +615,13 @@ PrefabInstance:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 191717681}
+    - target: {fileID: 8212785489143921930, guid: 8339aba3d7b581d449e71fb855c0f74d, type: 3}
+      propertyPath: tutorialNotification
+      value: "\u0417\u0410\u041A\u0410\u0417\u042B\u0412\u0410\u0419\u0422\u0415
+        \u0422\u041E\u0412\u0410\u0420, \u041F\u041E\u0414\u0411\u0418\u0420\u0410\u0419\u0422\u0415
+        \u0415\u0413\u041E, \u0420\u0410\u0417\u041D\u041E\u0421\u0418\u0422\u0415
+        \u041F\u041E \u0410\u0414\u0420\u0415\u0421\u0410\u041C \u0418 \u0421\u0411\u0420\u0410\u0421\u042B\u0412\u0410\u0419\u0422\u0415"
+      objectReference: {fileID: 0}
     - target: {fileID: 8940673249226171483, guid: 8339aba3d7b581d449e71fb855c0f74d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -747,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 56bda6c084f930740b6291246035df2c, type: 3}
     - target: {fileID: 1736383012007108897, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: spawnRange
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1736383012007108897, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: spawnScale

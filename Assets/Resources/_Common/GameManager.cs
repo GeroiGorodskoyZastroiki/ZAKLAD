@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             if (Random.Range(0f, 1f) < System.Math.Clamp(catchRate, 0, 1))
             {
                 areaManager.SpawnEscapeArea();
-                mapUI.ShowNotificationPursuit();
+                mapUI.ShowNotification(mapUI.pursuitNotification);
                 StartCoroutine(Pursuit());
             }
         }
@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
         {
             if (Vector3.Distance(areaManager.EscapeArea.gameObject.transform.position, player.transform.position) >= areaManager.GetRadius(areaManager.EscapeArea.gameObject))
             {
-                print("niceEscape");
                 EndPursuit();
                 DestroyImmediate(areaManager.EscapeArea.gameObject);
                 yield break;
@@ -91,14 +90,13 @@ public class GameManager : MonoBehaviour
         }
         EndPursuit();
         mapUI.SplashEndGame();
-        yield return new WaitForSeconds(3);
-        print("thats all");
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Map");
     }
 
     void EndPursuit()
     {
-        mapUI.HideNotification();
+        mapUI.ForceHideNotification();
         mapUI.timer.gameObject.transform.parent.gameObject.SetActive(false);
         mapUI.timer.text = "--";
     }
