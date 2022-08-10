@@ -7,13 +7,32 @@ public class Permissions : MonoBehaviour
     void Start()
     {
         PermissionCallbacks permissionCallback = new PermissionCallbacks();
-        permissionCallback.PermissionGranted += PermissionAccepted;
+        permissionCallback.PermissionGranted += PermissionGranted;
+        permissionCallback.PermissionDenied += PermissionDenied;
+        permissionCallback.PermissionDeniedAndDontAskAgain += PermissionDenied;
         string[] permissions = {Permission.FineLocation, Permission.Camera};
         Permission.RequestUserPermissions(permissions, permissionCallback);
     }
 
-    void PermissionAccepted(string permission)
+    void PermissionGranted(string permission)
     {
-        SceneManager.LoadScene("Map");
+        CheckGPS();
+    }
+
+    void PermissionDenied(string permission)
+    {
+        
+    }
+
+    void CheckGPS()
+    {
+        if (new LocationService().isEnabledByUser)
+        {
+            SceneManager.LoadScene("Map");
+        }
+        else
+        {
+
+        }
     }
 }

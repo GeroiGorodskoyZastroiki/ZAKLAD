@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     void LoadScene(Scene scene, LoadSceneMode loadmode)
     {
-        if (scene.name == "CameraNew")
+        if (scene.name == "Camera")
         {
             mapUI.gameObject.SetActive(false);
             areaManager.gameObject.SetActive(false);
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     void UnloadScene(Scene scene)
     {
-        if (scene.name == "CameraNew")
+        if (scene.name == "Camera")
         {
             mapUI.gameObject.SetActive(true);
             areaManager.gameObject.SetActive(true);
