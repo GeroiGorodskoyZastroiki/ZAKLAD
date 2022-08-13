@@ -1,9 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Android;
+using TMPro;
 
 public class Permissions : MonoBehaviour
 {
+    [SerializeField]
+    GameObject notificationPrefab;
+
+    string deniedNotification = "бш нрйкнмхкх пюгпеьемхъ, опеднярюбэре пюгпеьемхъ б мюярпнийюу х оепегюосярхре хцпс";
+    string noGPSNotification = "бйкчвхре GPS дкъ пюанрш йюпрш х оепегюосярхре хцпс";
+
     void Start()
     {
         PermissionCallbacks permissionCallback = new PermissionCallbacks();
@@ -21,7 +28,8 @@ public class Permissions : MonoBehaviour
 
     void PermissionDenied(string permission)
     {
-        
+        var notification = Instantiate(notificationPrefab, gameObject.transform);
+        notification.GetComponentInChildren<TMP_Text>().text = deniedNotification;
     }
 
     void CheckGPS()
@@ -32,7 +40,8 @@ public class Permissions : MonoBehaviour
         }
         else
         {
-
+            var notification = Instantiate(notificationPrefab, gameObject.transform);
+            notification.GetComponentInChildren<TMP_Text>().text = noGPSNotification;
         }
     }
 }

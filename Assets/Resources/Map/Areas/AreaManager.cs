@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
@@ -12,15 +13,18 @@ public class AreaManager : MonoBehaviour
 	[SerializeField]
 	GameObject PickUpAreaPrefab, DropAreaPrefab, EscapeAreaPrefab;
 
-    [SerializeField]
 	public float spawnScale = 20f;
 
 	[SerializeField]
 	float spawnRange = 100f;
 
+    [NonSerialized]
     public PickUpArea PickUpArea;
+    [NonSerialized]
     public DropArea[] DropAreas;
+    [NonSerialized]
     public EscapeArea EscapeArea;
+
     AbstractMap map;
 
 	void Start()
@@ -90,7 +94,7 @@ public class AreaManager : MonoBehaviour
 
     Vector2d GenerateRandomLocation()
     {
-		return map.WorldToGeoPosition(player.transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange)) * map.transform.lossyScale.x);
+		return map.WorldToGeoPosition(player.transform.position + new Vector3(UnityEngine.Random.Range(-spawnRange, spawnRange), 0, UnityEngine.Random.Range(-spawnRange, spawnRange)) * map.transform.lossyScale.x);
 	}
 
     GameObject SpawnArea(Vector2d location, GameObject area)

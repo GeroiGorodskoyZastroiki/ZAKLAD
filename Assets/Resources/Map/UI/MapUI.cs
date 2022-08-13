@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,20 +9,31 @@ using TMPro;
 
 public class MapUI : MonoBehaviour
 {
-	[SerializeField]
-	AbstractMap map;
-
-	[SerializeField]
-	GameObject playerObject;
-
-	[SerializeField]
-	GameObject notificationPrefab;
+	#region[Fields]
 
 	[SerializeField]
 	RectTransform background, settings, work, profile;
 
+    #region [Notification]
+
+    [SerializeField]
+	GameObject notificationPrefab;
+
+	[NonSerialized]
+	public string saveNotification = "СЕЙЧАС В ИГРЕ НЕТ СОХРАНЕНИЙ. ПРЕДПОЛАГАЕТСЯ ЦИКЛ: УСТАНОВИЛ - ПОРЖАЛ - УДАЛИЛ",
+	pursuitNotification = "ВЫ ПОПАЛИ В ПОЛИЦЕЙСКУЮ ЗАСАДУ. ВЫРВИТЕСЬ ИЗ ОЦЕПЛЕНИЯ, ПОКА НЕ ИСТЁК ТАЙМЕР",
+	tutorialNotification = "ЗАКАЗЫВАЙТЕ ТОВАР, ПОДБИРАЙТЕ ЕГО, РАЗНОСИТЕ ПО АДРЕСАМ И СБРАСЫВАЙТЕ";
+
+	#endregion[Notification]
+
+	#region[Settings]
+
 	[SerializeField]
 	Button regenerateZones;
+
+	#endregion[Settings]
+
+	#region[Work]
 
 	[SerializeField]
 	Button zoneButton;
@@ -34,21 +44,36 @@ public class MapUI : MonoBehaviour
 	[SerializeField]
 	TMP_Text drugsStockText;
 
+	#endregion[Work]
+
+	#region[Profile]
+
 	[SerializeField]
 	TMP_Text drugsStatsText;
+
+	#endregion[Profile]
 
 	[SerializeField]
 	Splash splash;
 
+	[NonSerialized]
 	public TMP_Text timer;
+
+	#endregion[Fields]
+
+	#region [Other References]
+
+	[SerializeField]
+	AbstractMap map;
+
+	[SerializeField]
+	GameObject playerObject;
 
 	AreaManager areaManager;
 	Area area;
 	Player player;
 
-	public string saveNotification = "СЕЙЧАС В ИГРЕ НЕТ СОХРАНЕНИЙ. ПРЕДПОЛАГАЕТСЯ ЦИКЛ: УСТАНОВИЛ - ПОРЖАЛ - УДАЛИЛ";
-	public string pursuitNotification = "ВЫ ПОПАЛИ В ПОЛИЦЕЙСКУЮ ЗАСАДУ. ВЫРВИТЕСЬ ИЗ ОЦЕПЛЕНИЯ, ПОКА НЕ ИСТЁК ТАЙМЕР";
-	public string tutorialNotification = "ЗАКАЗЫВАЙТЕ ТОВАР, ПОДБИРАЙТЕ ЕГО, РАЗНОСИТЕ ПО АДРЕСАМ И СБРАСЫВАЙТЕ";
+	#endregion [Other References]
 
 	void Start()
 	{
