@@ -89,8 +89,8 @@ public class GameManager : MonoBehaviour
                 DestroyImmediate(areaManager.EscapeArea.gameObject);
                 yield break;
             }
-            yield return new WaitForSeconds(1);
             mapUI.timer.text = i.ToString();
+            yield return new WaitForSeconds(1);
         }
         EndPursuit();
         mapUI.SplashEndGame();

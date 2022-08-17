@@ -602,6 +602,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panSpeed: 2
   _zoomSpeed: 0.25
+  player: {fileID: 0}
+  _referenceCamera: {fileID: 0}
+  _mapManager: {fileID: 0}
   _useDegreeMethod: 0
 --- !u!114 &1736383012007108897
 MonoBehaviour:
@@ -673,7 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _desiredAccuracyInMeters: 1
   _updateDistanceInMeters: 0.5
-  _updateTimeInMilliSeconds: 100
+  _updateTimeInMilliSeconds: 500
   _userHeadingSmoothing: {fileID: 1736383012161211646}
   _deviceOrientationSmoothing: {fileID: 1736383011815991719}
   _editorDebuggingOnly:
@@ -919,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _updateDistanceInMeters: 0.5
-  _updateTimeInMilliSeconds: 100
+  _updateTimeInMilliSeconds: 500
 --- !u!1 &1736383012590495752
 GameObject:
   m_ObjectHideFlags: 0

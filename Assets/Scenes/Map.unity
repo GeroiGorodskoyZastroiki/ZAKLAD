@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbf18ba70eff754787c89bad8ed2b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catchRate: 0.3
+  catchRate: 0.5
 --- !u!1001 &977218229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 331736241}
     - target: {fileID: 8212785489143921930, guid: 8339aba3d7b581d449e71fb855c0f74d, type: 3}
       propertyPath: mapDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8212785489143921930, guid: 8339aba3d7b581d449e71fb855c0f74d, type: 3}
       propertyPath: playerObject
@@ -831,6 +831,14 @@ PrefabInstance:
     - target: {fileID: 1736383012007108958, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: _useDegreeMethod
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736383012071727416, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: _updateTimeInMilliSeconds
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736383012388448081, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: _updateTimeInMilliSeconds
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1736383012641218344, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: m_RootOrder
