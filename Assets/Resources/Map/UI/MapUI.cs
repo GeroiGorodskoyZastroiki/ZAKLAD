@@ -59,7 +59,6 @@ public class MapUI : MonoBehaviour
 	[SerializeField]
 	Splash splash;
 
-	[NonSerialized]
 	public TMP_Text timer;
 
 	#endregion[Fields]

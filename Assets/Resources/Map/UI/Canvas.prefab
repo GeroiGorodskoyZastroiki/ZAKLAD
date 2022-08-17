@@ -2066,6 +2066,7 @@ MonoBehaviour:
   drugsStockText: {fileID: 370231120858214855}
   drugsStatsText: {fileID: 370231121378005580}
   splash: {fileID: 707359245318902587}
+  timer: {fileID: 7734944435836873909}
   map: {fileID: 0}
   playerObject: {fileID: 0}
   mapDebug: 0
