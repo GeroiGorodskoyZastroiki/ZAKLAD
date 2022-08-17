@@ -69,6 +69,6 @@ public class BezierFollow : MonoBehaviour
         var drugMesh = gameObject.transform.GetChild(1);
         drugMesh.gameObject.Destroy();
         //SaveManager.Instance.XmlSave();
-        SceneManager.UnloadSceneAsync("CameraNew");
+        SceneManager.UnloadSceneAsync("Camera");
     }
 }

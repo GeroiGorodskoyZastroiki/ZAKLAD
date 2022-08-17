@@ -30,6 +30,7 @@ public class AreaManager : MonoBehaviour
 	void Start()
 	{
 		map = gameObject.GetComponent<AbstractMap>();
+        map.OnUpdated += UpdateAreasPosition;
 		//Load();
 	}
 
@@ -55,6 +56,15 @@ public class AreaManager : MonoBehaviour
             {
                 DestroyImmediate(area.gameObject);
             }
+        }
+    }
+
+    void UpdateAreasPosition()
+    {
+        var areas = FindObjectsOfType<Area>();
+        foreach (Area area in areas)
+        {
+            area.gameObject.transform.position = map.GeoToWorldPosition(area.location) + new Vector3(0, 1, 0);
         }
     }
 
@@ -100,7 +110,8 @@ public class AreaManager : MonoBehaviour
     GameObject SpawnArea(Vector2d location, GameObject area)
     {
         var instance = Instantiate(area);
-        instance.transform.localPosition = map.GeoToWorldPosition(location, true) + new Vector3(0, 0.1f, 0);
+        instance.GetComponent<Area>().location = location;
+        instance.transform.localPosition = map.GeoToWorldPosition(location, true) + new Vector3(0, 1, 0);
         instance.transform.localScale = new Vector3(spawnScale * map.transform.localScale.x, spawnScale * map.transform.localScale.y, spawnScale * map.transform.localScale.z);
         instance.transform.SetParent(map.transform);
         return instance;

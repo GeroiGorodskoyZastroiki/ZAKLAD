@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
 using TMPro;
@@ -13,6 +14,8 @@ public class MapUI : MonoBehaviour
 
 	[SerializeField]
 	RectTransform background, settings, work, profile;
+
+	RectTransform currentTab;
 
     #region [Notification]
 
@@ -75,6 +78,8 @@ public class MapUI : MonoBehaviour
 
 	#endregion [Other References]
 
+	[SerializeField] bool mapDebug; 
+
 	void Start()
 	{
 		NullTab();
@@ -88,31 +93,35 @@ public class MapUI : MonoBehaviour
 		UpdateUI();
 	}
 
-    #region [Tabs]
+	#region [Tabs]
 
-    public void NullTab()
+	public void NullTab()
     {
 		SetCurrentTab(null);
 	}
 
     public void Settings()
 	{
-		SetCurrentTab(settings);
+		if (currentTab == settings) { NullTab(); }
+		else { SetCurrentTab(settings); }
 	}
 
 	public void Work()
 	{
-		SetCurrentTab(work);
+		if (currentTab == work) { NullTab(); }
+		else { SetCurrentTab(work); }
 	}
 
 	public void Profile()
 	{
-		SetCurrentTab(profile);
+		if (currentTab == profile) { NullTab(); }
+		else { SetCurrentTab(profile); }
+		;
 	}
 
-	void SetCurrentTab(RectTransform currentTab)
+	void SetCurrentTab(RectTransform newTab)
     {
-		if (currentTab == null)
+		if (newTab == null)
         {
 			background.gameObject.SetActive(false);
 		}
@@ -122,9 +131,10 @@ public class MapUI : MonoBehaviour
 			work.gameObject.SetActive(false);
 			settings.gameObject.SetActive(false);
 			background.gameObject.SetActive(true);
-			currentTab.gameObject.SetActive(true);
-			background.sizeDelta = new Vector2(background.sizeDelta.x, 493f + currentTab.rect.height);
+			newTab.gameObject.SetActive(true);
+			background.sizeDelta = new Vector2(background.sizeDelta.x, 493f + newTab.rect.height);
 		}
+		currentTab = newTab;
 	}
 
     #endregion [Tabs]
@@ -142,10 +152,11 @@ public class MapUI : MonoBehaviour
 
     public void OrderMore()
     {
+        
 		orderInputField.text = (Math.Clamp((int.Parse(orderInputField.text) + 1), 1, 99)).ToString();
     }
 
-	public void OrderLess()
+    public void OrderLess()
 	{
 		orderInputField.text = (Math.Clamp((int.Parse(orderInputField.text) - 1), 1, 99)).ToString();
 	}
@@ -163,7 +174,16 @@ public class MapUI : MonoBehaviour
 				areaManager.SpawnDropAreas(int.Parse(orderInputField.text));
 				break;
 			case "Сбросить товар":
-				SceneManager.LoadSceneAsync("CameraNew", LoadSceneMode.Additive);
+				if (mapDebug)
+                {
+					DestroyImmediate(player.inArea.gameObject);
+					player.drugsStock--;
+					player.drugsStats++;
+				}
+                else
+                {
+					SceneManager.LoadSceneAsync("Camera", LoadSceneMode.Additive);
+				}
 				break;
 		}
 	}

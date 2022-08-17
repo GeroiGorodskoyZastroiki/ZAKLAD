@@ -49,7 +49,6 @@ public class SwipeDetection : MonoBehaviour
             }
         }
         CheckSwipe();
-        
     }
 
     private void CheckSwipe()
@@ -77,7 +76,9 @@ public class SwipeDetection : MonoBehaviour
                 else
                 {
                     if (swipeDelta.y>0)
+                    {
                         SwipeEvent(Vector2.up);
+                    }
                 }
                 ResetSwipe();
             }

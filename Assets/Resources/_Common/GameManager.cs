@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     Player player;
     MapUI mapUI;
     AreaManager areaManager;
+    Camera cam;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         mapUI = FindObjectOfType<MapUI>();
         areaManager = FindObjectOfType<AreaManager>();
+        cam = FindObjectOfType<Camera>();
         SceneManager.sceneLoaded += LoadScene;
         SceneManager.sceneUnloaded += UnloadScene;
     }
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Camera")
         {
+            cam.gameObject.SetActive(false);
             mapUI.gameObject.SetActive(false);
             areaManager.gameObject.SetActive(false);
             player.gameObject.transform.parent.gameObject.SetActive(false);
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Camera")
         {
+            cam.gameObject.SetActive(true);
             mapUI.gameObject.SetActive(true);
             areaManager.gameObject.SetActive(true);
             player.gameObject.transform.parent.gameObject.SetActive(true);
