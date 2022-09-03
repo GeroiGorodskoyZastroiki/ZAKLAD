@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle.001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736383010712995454, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
+      propertyPath: _dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1736383012007108896, guid: d86ddb24643cd0d40a87812385b9abcb, type: 3}
       propertyPath: _tileProvider
       value: 
