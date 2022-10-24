@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5168516684642414253}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8239269496248707892
 MeshFilter:
@@ -114,7 +114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5168516684642414253}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3748160067343481043
 MeshFilter:
@@ -597,10 +597,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1736383011975669021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9527fd56bc6a0c549a1e550219f9b16e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c699b8e1864b4b248acb7a04ede9480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panSpeed: 1
+  _panSpeed: 2
   _zoomSpeed: 0.25
   player: {fileID: 0}
   _referenceCamera: {fileID: 0}
@@ -1035,7 +1035,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1736383012641218344}
-  m_RootOrder: 3
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!20 &1736383012745932738
 Camera:
@@ -1174,7 +1174,7 @@ Transform:
   - {fileID: 2326948989402046391}
   - {fileID: 7926835624023762191}
   m_Father: {fileID: 1737006315928485430}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &351221655025550933
 Animator:
